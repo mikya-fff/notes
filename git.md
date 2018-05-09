@@ -24,6 +24,7 @@
  2. git clone repository_url 拉取代码，远程分支,将远程名默认为origin，默认设置本地master跟踪远程master分支
  3. git pull remote_name 拉取代码并合并
  
-###git branch , git merge
+### git branch , git merge
  1. 当merge有冲突的时候，解决冲突之后，要重新提交
  2. 以图形的方式查看所有分支的log,--decorate会显示分支信息 git log --oneline --decorate --graph --all
+ 3. git branch branch_name,git checkout branch_name == git checkout -b branch_name
