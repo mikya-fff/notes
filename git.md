@@ -21,7 +21,8 @@
  
 ### git fetch 、 git clone 、 git pull
  1. git fetch remote_name 拉取代码,不合并，remote_name是添加远程仓库的名称
- 2. git clone repository_url 拉取代码，远程分支,将远程名默认为origin，默认设置本地master跟踪远程master分支
+ 2. git clone repository_url 拉取代码，远程分支,将远程名默认为origin，默认设置本地master跟踪远程master分支  
+    git clone -o mine 将远程名定义为mine
  3. git pull remote_name 拉取代码并合并
  
 ### git branch , git merge
