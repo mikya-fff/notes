@@ -43,4 +43,4 @@
 
 ### git push 
  1. 删除远程服务器上的分支 git push --delete remote_branchname  
-    git branch -r -d branch_name
+    git branch -r -d branch_name 只是删除了追踪关系，并没有真正删除服务器上的分支
