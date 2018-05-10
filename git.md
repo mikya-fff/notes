@@ -29,3 +29,12 @@
  1. 当merge有冲突的时候，解决冲突之后，要重新提交
  2. 以图形的方式查看所有分支的log,--decorate会显示分支信息 git log --oneline --decorate --graph --all
  3. git branch branch_name,git checkout branch_name == git checkout -b branch_name
+ 
+### git rebase
+ 1. git rebase -i commitid或HEAD^^ commitid或HEAD^^是指你要回退的那个点的前面一笔提交的commitid  
+    根据弹出的注释修改相应的操作,完成后保存并退出
+ 2. 会有操作提示,如果需要修改多笔提交，则git rebase --continue之后会有操作提示
+    - 先git commit --amend   
+     - 如果需要更改用户名和邮箱，修改.gitconfig之后 git commit --amend --reset-author
+    - 再git rebase --continue
+     - 如果不执行这一步，执行其他的操作时，会提示有rebase操作未完成，结合提示和实际情况
