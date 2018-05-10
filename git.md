@@ -29,6 +29,8 @@
  1. 当merge有冲突的时候，解决冲突之后，要重新提交
  2. 以图形的方式查看所有分支的log,--decorate会显示分支信息 git log --oneline --decorate --graph --all
  3. git branch branch_name,git checkout branch_name == git checkout -b branch_name
+ 4. git checkout -b local_branch remote_name/remote_branch 创建本地分支指定这个分支所跟踪的远程分支，并切换到这个新建的分支上  
+    等同于 git checkout --track remote_name/remote_branch 此时本地分支名与远程分支名相同
  
 ### git rebase
  1. git rebase -i commitid或HEAD^^ commitid或HEAD^^是指你要回退的那个点的前面一笔提交的commitid  
