@@ -40,3 +40,7 @@
       - 如果需要更改用户名和邮箱，修改.gitconfig之后 git commit --amend --reset-author
     - 再git rebase --continue
       - 如果不执行这一步，执行其他的操作时，会提示有rebase操作未完成，结合提示和实际情况
+
+### git push 
+ 1. 删除远程服务器上的分支 git push --delete remote_branchname  
+    git branch -r -d branch_name
