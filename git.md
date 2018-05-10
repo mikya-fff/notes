@@ -35,6 +35,6 @@
     根据弹出的注释修改相应的操作,完成后保存并退出
  2. 会有操作提示,如果需要修改多笔提交，则git rebase --continue之后会有操作提示
     - 先git commit --amend   
-     - 如果需要更改用户名和邮箱，修改.gitconfig之后 git commit --amend --reset-author
+      - 如果需要更改用户名和邮箱，修改.gitconfig之后 git commit --amend --reset-author
     - 再git rebase --continue
-     - 如果不执行这一步，执行其他的操作时，会提示有rebase操作未完成，结合提示和实际情况
+      - 如果不执行这一步，执行其他的操作时，会提示有rebase操作未完成，结合提示和实际情况
