@@ -31,6 +31,9 @@
  3. git branch branch_name,git checkout branch_name == git checkout -b branch_name
  4. git checkout -b local_branch remote_name/remote_branch 创建本地分支指定这个分支所跟踪的远程分支，并切换到这个新建的分支上  
     等同于 git checkout --track remote_name/remote_branch 此时本地分支名与远程分支名相同
+ 5. git branch -vv 查看本地分支和追踪的远程分支以及最后一笔提交
+ 6. git branch -u remote_branch 将当前分支追踪远程分支
+ 7. git branch -r 查看远程的分支情况 
  
 ### git rebase
  1. git rebase -i commitid或HEAD^^ commitid或HEAD^^是指你要回退的那个点的前面一笔提交的commitid  
@@ -44,3 +47,7 @@
 ### git push 
  1. 删除远程服务器上的分支 git push --delete remote_branchname  
     git branch -r -d branch_name 只是删除了追踪关系，并没有真正删除服务器上的分支
+ 2. 在远程服务器上创建分支 git push origin -u branch_name
+    
+### git remote
+ 1. git ls-remote 远程服务器的信息
