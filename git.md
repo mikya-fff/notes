@@ -56,6 +56,15 @@
  1. 删除远程服务器上的分支 git push --delete remote_branchname  
     git branch -r -d branch_name 只是删除了追踪关系，并没有真正删除服务器上的分支
  2. 在远程服务器上创建分支 git push origin -u branch_name
+ 3. git push出错，需要重新git pull
+    git pull --rebase  
+    因为删除了.git文件所以重新git remote add ,所以需要设置分支  
+    git branch --set-upstream-to=origin/master master  
+    git pull --rebase   
+    解决冲突后  
+    git rebase --continue  
+    git push origin HEAD:master  
+   .gitignore忽略文件，ide本身生成的文件，属于你个人的文件都需要被忽略
     
 ### git remote
  1. git ls-remote 远程服务器的信息
