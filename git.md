@@ -43,13 +43,13 @@
       - 如果需要更改用户名和邮箱，修改.gitconfig之后 git commit --amend --reset-author
     - 再git rebase --continue
       - 如果不执行这一步，执行其他的操作时，会提示有rebase操作未完成，结合提示和实际情况
- 3. 通过rebase合并分支，将testing分支合并到master分支，master是基底
-    变基：找到testing和master的共同祖先，然后testing相对于祖先的历次提交的修改文件相当于patch，然后让testing指向master，并应用这个patch
-    git checkout testing  
-    git rebase master
-    合并：
-    git checkout master
-    git merge testing 
+ 3. 通过rebase合并分支，将testing分支合并到master分支，master是基底  
+    变基：找到testing和master的共同祖先，然后testing相对于祖先的历次提交的修改文件相当于patch，然后让testing指向master，并应用这个patch  
+    git checkout testing   
+    git rebase master  
+    合并：  
+    git checkout master  
+    git merge testing   
     
 
 ### git push 
@@ -64,7 +64,7 @@
     解决冲突后  
     git rebase --continue  
     git push origin HEAD:master  
-   .gitignore忽略文件，ide本身生成的文件，属于你个人的文件都需要被忽略
+   .gitignore忽略文件，ide本身生成的文件，属于你个人的文件都需要被忽略  
     
 ### git remote
  1. git ls-remote 远程服务器的信息
