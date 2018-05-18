@@ -50,6 +50,8 @@
     合并：  
     git checkout master  
     git merge testing   
+ 4. git rebase master testing ,以master为基底执行变基
+    git checkout master
     
 
 ### git push 
