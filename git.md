@@ -6,6 +6,10 @@
  更改已经添加到暂存区，即git add <file> --> git status会显示git reset  
  git reset HEAD <file>将暂存区的文件用HEAD版本中的文件代替  
  如果使用git reset命令，则工作区和暂存区的文件是不一样的，此时的状态与只在工作区做了修改未提交到暂存区一样  
+ git reset --soft HEAD^2 只是将HEAD指针指向HEAD^2并不修改暂存区和工作区的内容
+ git reset [--mixed] HEAD^2 HEAD指针指向HEAD^2,修改暂存区，不修改工作区的内容
+ 没有指明--soft或者--hard则代表--mixed，即修改暂存区的内容
+ git reset --hard HEAD^2 HEAD指针指向HEAD^2，修改暂存区和工作区的内容
  
 ### git diff
  1. git diff默认比较的是当前工作区与上次添加到暂存区中的文件的不同
