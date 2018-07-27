@@ -1,10 +1,10 @@
 ### git checkout 
  未添加到暂存区的时候即只在工作区进行了更改，git status会出现git checkout  
- git checkout -- <file> 是指不保存工作区的修改
+ git checkout -- <file> 是指不保存工作区的修改，拷贝另外一个文件来覆盖它
  
 ### git reset
  更改已经添加到暂存区，即git add <file> --> git status会显示git reset  
- git reset HEAD <file>将暂存区的文件用HEAD版本中的文件代替  
+ git reset HEAD <file> 用于取消暂存，将暂存区的文件用HEAD版本中的文件代替 
  如果使用git reset命令，则工作区和暂存区的文件是不一样的，此时的状态与只在工作区做了修改未提交到暂存区一样  
  git reset --soft HEAD^2 只是将HEAD指针指向HEAD^2并不修改暂存区和工作区的内容
  git reset [--mixed] HEAD^2 HEAD指针指向HEAD^2,修改暂存区，不修改工作区的内容
@@ -21,23 +21,32 @@
  
 ### git rm
  1. 当文件git add加入暂存区后，只能使用git rm --cached file 或者git rm -f file 
- 2. git commit 后文件才可以使用git rm 命令，此命令会将工作区的文件一起删除，相当于rm命令
+    git rm log/\*.a 删除log下的所有以.a文件
+ 2. git commit 后文件才可以使用git rm 命令，git rm命令会将工作区的文件一起删除，相当于rm后再 git add
  
 ### git fetch 、 git clone 、 git pull
  1. git fetch remote_name 拉取代码,不合并，remote_name是添加远程仓库的名称
+    当本地仓库与远程仓库的提交不同步的时候使用git fetch更新远程仓库的引用
  2. git clone repository_url 拉取代码，远程分支,将远程名默认为origin，默认设置本地master跟踪远程master分支  
     git clone -o mine 将远程名定义为mine
+    git clone repository_url local_repo_name ,不指定local_repo_name时，使用远程仓库名作为新的仓库名，即文件夹的名称
+      这会在当前目录下创建一个名为 “local_repo_name” 的目录,并在这个目录下初始化一个.git 文件夹,从远程仓库拉取下所有数据放入.git 文件夹,然后从中读取最新版本的文件的拷贝。
  3. git pull remote_name 拉取代码并合并
+    git pull remotename remotebranch:localbranch
  
 ### git branch , git merge
  1. 当merge有冲突的时候，解决冲突之后，要重新提交
+    git merge another—branch ,将another-branch merge到当前的分支上
+    git fetch 后，git merge origin/serverfix 合并fetch下来的文件
  2. 以图形的方式查看所有分支的log,--decorate会显示分支信息 git log --oneline --decorate --graph --all
  3. git branch branch_name,git checkout branch_name == git checkout -b branch_name
  4. git checkout -b local_branch remote_name/remote_branch 创建本地分支指定这个分支所跟踪的远程分支，并切换到这个新建的分支上  
     等同于 git checkout --track remote_name/remote_branch 此时本地分支名与远程分支名相同
- 5. git branch -vv 查看本地分支和追踪的远程分支以及最后一笔提交
+ 5. git branch -vv 查看本地分支和追踪的远程分支以及最后一笔提交，但是远程分支是从服务器上最后一次抓取的数据
+    git fetch --all ;git branch -vv  可以统计出最新的远程分支与本地分支的差别
  6. git branch -u remote_branch 将当前分支追踪远程分支
  7. git branch -r 查看远程的分支情况 
+ 8. git branch --merged|--no-merged ,列出已经合并会未合并到当前分支的所有分支列表
  
 ### git rebase
  1. git rebase -i commitid或HEAD^^ commitid或HEAD^^是指你要回退的那个点的前面一笔提交的commitid  
@@ -51,11 +60,12 @@
     变基：找到testing和master的共同祖先，然后testing相对于祖先的历次提交的修改文件相当于patch，然后让testing指向master，并应用这个patch  
     git checkout testing   
     git rebase master  
-    合并：  
+    合并：此时合并就是快速合并了，直接移动指针指向即可，因为变基之后所有的提交都在一条线上  
     git checkout master  
     git merge testing   
  4. git rebase master testing ,以master为基底执行变基
     git checkout master
+ 5. git rebase --onto master server client 选中在 client 分支里但不在server 分支里的修改(即 C8 和 C9),将它们在 master 分支上重演
     
 
 ### git push 
@@ -71,6 +81,25 @@
     git rebase --continue  
     git push origin HEAD:master  
    .gitignore忽略文件，ide本身生成的文件，属于你个人的文件都需要被忽略  
+  4. git push remote_name localbranch:remotebranch
+  5. git push --force覆盖服务器上的提交
     
 ### git remote
  1. git ls-remote 远程服务器的信息
+ 2. git remote show remote-name 显示远程仓库的信息
+
+### git add
+ 1. git add file1 [file2]/dir 如果add一个目录，则会递归地跟踪目录下所有的文件并且将其添加到暂存区
+
+
+### git mv 移动
+ 1. mv old new -> git rm old > git add new = git mv
+
+### git tag
+ 1. 轻量标签,不使用-a,-s,-m
+  git tag tagname [commitid] 不指定commitid,默认是对HEAD
+ 2. 标注标签
+  git tag -a tagname -m "tag message" [commitid] 不指定commitid,默认是对HEAD
+ 3. git show tagname
+ 4. git push remotename tagname
+    git push remotename --tags 将所有不在远程仓库服务器上的标签全部传送到那里
