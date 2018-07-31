@@ -103,3 +103,10 @@
  3. git show tagname
  4. git push remotename tagname
     git push remotename --tags 将所有不在远程仓库服务器上的标签全部传送到那里
+    
+### git push 失败，git pull后，是否可以用--amend选项进行提交？
+
+```mermaid
+sequenceDiagram
+  A-->B: Works!
+```
