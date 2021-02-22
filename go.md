@@ -150,14 +150,14 @@ fmt包,推荐:
 name := "tom"
 ```
 
-![001](/home/mikya/workspace/notebooks/images/001-1611053938777.png)
+![001](./images/001-1611053938777.png)
 
 ```go
 name := "tom"
 nickname := name
 ```
 
-![001](/home/mikya/workspace/notebooks/images/001-1611054052597.png)
+![001](./images/001-1611054052597.png)
 
 ```go
 name := "tom"
@@ -166,7 +166,7 @@ nickname := name
 name = "jerry"
 ```
 
-![001](/home/mikya/workspace/notebooks/images/001-1611054294337.png)
+![001](./images/001-1611054294337.png)
 
 **注意事项**：
 
@@ -358,19 +358,19 @@ svip:
 
 ### 1. 算术运算符
 
-![](/home/mikya/workspace/notebooks/images/001-1611629794286.png)
+![](./images/001-1611629794286.png)
 
 ### 2. 关系运算符
 
-![](/home/mikya/workspace/notebooks/images/002.png)
+![](./images/002.png)
 
 ### 3. 逻辑运算符
 
-![](/home/mikya/workspace/notebooks/images/003.png)
+![](./images/003.png)
 
 ### 4. 位运算符
 
-![](/home/mikya/workspace/notebooks/images/004.png)
+![](./images/004.png)
 
 **计算机中的存储、运算、网络传输等，实质上都是二进制操作**
 
@@ -393,23 +393,34 @@ r1 := 5 ^ 99 //十进制的102
 99 -> 1100011
       1100110   -> 102
 
-//4. 
+//4. 按位向左或右移动
+r1 := 5 << 2 //20
+      5 -> 101
+向左移动两位 -> 10100 = 20
+
+r1 := 5 >> 1 //2
+      5 -> 101
+向右移动两位 -> 10 = 2
+
+//5. 比较清除，以上面为基准，当两个都是1的时候，将上面的1置0
+r1 := 5 &^ 99 //4
+5  -> 0000101
+99 -> 1100011
+      0000100 = 4
 ```
-
-
-
-
-
-
 
 ### 5.  赋值运算符
 
-![](/home/mikya/workspace/notebooks/images/005.png)
+![](./images/005.png)
 
 ### 6. 指针运算符
 
-![](/home/mikya/workspace/notebooks/images/006.png)
+![](./images/006.png)
 
 ### 7. 运算符优先级
 
-![](/home/mikya/workspace/notebooks/images/007.png)
+使用括号来改变优先级
+
+![](./images/007.png)
+
+## 
